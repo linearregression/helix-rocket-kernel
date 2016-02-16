@@ -1,0 +1,25 @@
+	{
+	    "_comment": 
+	    [
+		"config.json: Rocket Kernel for Helix App Cloud",
+		"Modification History:",
+		"12feb16,jdw  Initial version"
+	    ],
+	    "name": "Helix Rocket Kernel"
+	    "description": "The Rocket Kernel adapted to the Helix App Cloud platform",
+	    "tags":
+	    [
+		"rocket"
+	    ],
+	    "lang": "C",
+	    "visibility": "local",
+	    "type": "library",
+ 	    "project_data":
+	    {
+		"zephyr" : 
+		{ 
+		    "fetch" : { "scm":"git", "url": "http://vxgit.wrs.com/scm/wrplat/intel_zephyr.git" },
+		    "config" : "bin/applyPatch rocket-0.9 patches zephyr" 
+		}		
+	    }
+	}
