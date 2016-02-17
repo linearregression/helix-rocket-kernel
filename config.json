@@ -5,7 +5,7 @@
 		"Modification History:",
 		"12feb16,jdw  Initial version"
 	    ],
-	    "name": "Helix Rocket Kernel"
+	    "name": "Helix Rocket Kernel",
 	    "description": "The Rocket Kernel for Helix App Cloud",
 	    "tags":
 	    [
@@ -18,7 +18,7 @@
 	    {
 		"zephyr" : 
 		{ 
-		    "fetch" : { "scm":"git", "url": "https://gerrit.zephyrproject.org/r/zephyr" }
+		    "fetch" : { "scm":"git", "url": "https://gerrit.zephyrproject.org/r/zephyr" },
 		    "config" : "bin/applyPatch rocket-0.9 patches zephyr" 
 		}		
 	    }
