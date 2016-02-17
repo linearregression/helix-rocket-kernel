@@ -47,7 +47,7 @@ SOURCE_DIR = $(APP_DIR)/src
 MDEF_FILE = $(APP_DIR)/prj.mdef
 KERNEL_TYPE = micro
 CONF_FILE = $(APP_DIR)/prj_$(ARCH).conf
-ZEPHYR_BASE := $(PROJECT_ROOT)/rocket_kernel
+ZEPHYR_BASE := $(PROJECT_ROOT)/rocket_kernel/zephyr
 export ZEPHYR_BASE
 
 all:

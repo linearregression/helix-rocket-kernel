@@ -83,11 +83,11 @@ my $cfgRef = parseCfgData( $cfgData );
 my %cfg = %{ $cfgRef };
  
 die "ERROR: Can't find specified patch [ $patchName ] in config file [ $cfgFile ]!\n"
-    unless ( $cfg{ project_data }{ $patchName } );
+    unless ( $cfg{ project_data }{ patches }{ $patchName } );
 
 # Get the info we need to patch from the config file
-my $patchFile = $cfg{ project_data }{ $patchName }{ file };
-my $repoSha = $cfg{ project_data }{ $patchName }{ sha };
+my $patchFile = $cfg{ project_data }{ patches }{ $patchName }{ file };
+my $repoSha = $cfg{ project_data }{ patches }{ $patchName }{ target_sha };
 
 my $patch = abs_path( catfile( $patchesDir, $patchFile ) );
 

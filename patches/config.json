@@ -11,11 +11,14 @@
     "type": "library",
     "project_data":
     {
-	"rocket-0.9" : 
+	"patches" :
 	{
-	    "sha" : "9183e1f", 
-	    "file" : "rocket-0.9.patch",
-	    "note" : "Intel Zephyr v0.9 to WR Rocket v0.9"
+	    "rocket-0.9" : 
+	    {
+		"target_sha" : "9183e1f", 
+		"file" : "rocket-0.9.patch",
+		"note" : "Intel Zephyr v0.9 to WR Rocket v0.9"
+	    }
 	}
     }
 }
