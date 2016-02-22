@@ -19,7 +19,7 @@
 		"zephyr" : 
 		{ 
 		    "fetch" : { "scm":"git", "url": "https://gerrit.zephyrproject.org/r/zephyr" },
-		    "config" : { "cmd":"bin/applyPatch rocket-0.9 patches zephyr", "no_cd":"1" }
+		    "config" : { "cmd":"bin/applyPatch rocket-1.0 patches zephyr", "no_cd":"1" }
 		}		
 	    }
 	}
