@@ -88,6 +88,7 @@ die "ERROR: Can't find specified patch [ $patchName ] in config file [ $cfgFile 
 # Get the info we need to patch from the config file
 my $patchFile = $cfg{ project_data }{ patches }{ $patchName }{ file };
 my $repoSha = $cfg{ project_data }{ patches }{ $patchName }{ target_sha };
+my $repoBranch = $cfg{ project_data }{ patches }{ $patchName }{ target_branch };
 
 my $patch = abs_path( catfile( $patchesDir, $patchFile ) );
 
@@ -111,15 +112,34 @@ if ( defined $repoSha )
     die "ERROR: Can't checkout at SHA[ $repoSha ]!\n"
 	if ( $? );
 }
+else
+{
+    # Check out the specified branch before proceeding
+    $cmd = "git checkout $repoBranch 2>&1";
+    $rslt = `$cmd`;
+    
+    die "ERROR: Can't checkout branch[ $repoBranch ]!\n"
+	if ( $? );
+}
 
-# Check out the specified SHA before proceeding
+# Create a branch to apply the patch changes
 $cmd = "git checkout -b $patchName 2>&1";
 $rslt = `$cmd`;
 
 die "ERROR: Can't checkout branch for patch!\n"
     if ( $? );
 
-$cmd = "git am < $patch 2>&1";
+# If the patch is compressed with .zip
+if ( $patch =~ m|\.zip\s*$| )
+{
+    $cmd = "unzip -p $patch | git am -q --ignore-whitespace";
+}
+else
+{
+    # Assume the patch isn't compressed
+    $cmd = "git am -q --ignore-whitespace < $patch 2>&1";
+}
+
 $rslt = `$cmd`;
 
 die "ERROR: Patching operation failed!\n"
