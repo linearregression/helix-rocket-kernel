@@ -38,7 +38,7 @@
 # These environment variables are defined externally by the SDK
 #
 ARCH := ${SDK_ARCH}
-PLATFORM_CONFIG := ${SDK_PLATFORM}
+BOARD := ${SDK_PLATFORM}
 #
 # APP_DIR - Defined as the path to the application directory where the
 # application specific settings are defined
