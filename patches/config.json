@@ -22,7 +22,7 @@
 	    "rocket-1.0" : 
 	    {
 		"target_sha" : "027b69e0d5fb2b02b2c9d46e900f503b2d6b957a", 
-		"file" : "rocket-1.0.patch",
+		"file" : "rocket-1.0.patch.zip",
 		"note" : "Intel Zephyr v1.0 to WR Rocket v1.0"
 	    }
 	}
