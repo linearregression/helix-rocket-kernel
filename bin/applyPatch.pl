@@ -110,7 +110,7 @@ if ( defined $repoSha )
     $rslt = `$cmd`;
     
     die "ERROR: Can't checkout at SHA[ $repoSha ]!\n"
-	if ( $? );
+	unless ( 0 == $? );
 }
 else
 {
@@ -119,7 +119,7 @@ else
     $rslt = `$cmd`;
     
     die "ERROR: Can't checkout branch[ $repoBranch ]!\n"
-	if ( $? );
+	unless ( 0 == $? );
 }
 
 # Create a branch to apply the patch changes
@@ -127,7 +127,7 @@ $cmd = "git checkout -b $patchName 2>&1";
 $rslt = `$cmd`;
 
 die "ERROR: Can't checkout branch for patch!\n"
-    if ( $? );
+    unless ( 0 == $? );
 
 # If the patch is compressed with .zip
 if ( $patch =~ m|\.zip\s*$| )
@@ -143,6 +143,6 @@ else
 $rslt = `$cmd`;
 
 die "ERROR: Patching operation failed!\n"
-    if ( $? );
+    unless ( 0 == $? );
 
 exit 0;
