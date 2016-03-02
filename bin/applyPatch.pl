@@ -48,6 +48,9 @@ die "ERROR: Invalid arguments!\n"
 # External git utility
 my $git = "git";
 
+my $user=`whoami`;
+chomp $user;
+
 # Routine to get the config data from a file
 sub getCfgDataFromFile
 {
@@ -123,16 +126,16 @@ else
 }
 
 # Create a branch to apply the patch changes
-$cmd = "git checkout -b $patchName 2>&1";
+$cmd = "git checkout -b $user"."_"."$patchName 2>&1";
 $rslt = `$cmd`;
 
-die "ERROR: Can't checkout branch for patch!\n"
+die "ERROR: Can't checkout branch [ $user"."_"."$patchName ] for patch!\n"
     unless ( 0 == $? );
 
 # If the patch is compressed with .zip
 if ( $patch =~ m|\.zip\s*$| )
 {
-    $cmd = "unzip -p $patch | git am -q --ignore-whitespace";
+    $cmd = "unzip -p $patch | git am -q --ignore-whitespace 2>&1";
 }
 else
 {
