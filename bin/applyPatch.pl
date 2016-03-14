@@ -71,8 +71,16 @@ sub getCfgDataFromFile
 sub parseCfgData
 {
     my $jsonData = shift;
+    my $rslt = shift;
+    my $cfgHash;
+    ${ $rslt } = 0;
 
-    my $cfgHash = decode_json $jsonData;
+    eval 
+    {
+	$cfgHash = decode_json $jsonData;
+    };
+    
+    ${ $rslt } = -1 if ( $@ );
 
     return $cfgHash;
 }
@@ -81,7 +89,13 @@ my $cfgFile = catfile( $patchesDir, "config.json" );
 
 my $cfgData = getCfgDataFromFile( $cfgFile );
 
-my $cfgRef = parseCfgData( $cfgData );
+my $rslt;
+my $cfgRef = parseCfgData( $cfgData, \$rslt );
+
+unless ( 0 == $rslt )
+{
+    die "ERROR: Parsing file [ $cfgFile ] failed!\n";
+}
 
 my %cfg = %{ $cfgRef };
  
