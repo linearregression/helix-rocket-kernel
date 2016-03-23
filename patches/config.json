@@ -1,0 +1,37 @@
+{
+    "_comment": 
+    [
+	"config.json: Rocket Kernel patch data",
+	"Modification History:",
+	"11mar16,jdw  Add Rocket v1.1",
+	"12feb16,jdw  Initial version"
+    ],
+    "name": "Helix Rocket Kernel Patches",
+    "description": "This file contains config info used to apply patches to the Intel Zephyr git repository. The patches covert the Zephyr repository into a Rocket Kernel repository.",
+    "visibility": "local",
+    "type": "library",
+    "project_data":
+    {
+	"patches" :
+	{
+	    "rocket-1.1" : 
+	    {
+		"target_sha" : "09472bcdffb0773f798aa655f4582efd034f25dd", 
+		"file" : "rocket-1.1.patch.zip",
+		"note" : "Intel Zephyr v1.1 to WR Rocket v1.1"
+	    },
+	    "rocket-1.0" : 
+	    {
+		"target_sha" : "027b69e0d5fb2b02b2c9d46e900f503b2d6b957a", 
+		"file" : "rocket-1.0.patch.zip",
+		"note" : "Intel Zephyr v1.0 to WR Rocket v1.0"
+	    },
+	    "rocket-0.9" : 
+	    {
+		"target_sha" : "9183e1f", 
+		"file" : "rocket-0.9.patch.zip",
+		"note" : "Intel Zephyr v0.9 to WR Rocket v0.9"
+	    }
+	}
+    }
+}

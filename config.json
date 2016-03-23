@@ -1,0 +1,26 @@
+	{
+	    "_comment": 
+	    [
+		"config.json: Rocket Kernel for Helix App Cloud",
+		"Modification History:",
+		"11mar16,jdw  Update to Rocket v1.1",
+		"12feb16,jdw  Initial version"
+	    ],
+	    "name": "Helix Rocket Kernel",
+	    "description": "The Rocket Kernel for Helix App Cloud",
+	    "tags":
+	    [
+		"rocket"
+	    ],
+	    "lang": "C",
+	    "visibility": "local",
+	    "type": "library",
+ 	    "project_data":
+	    {
+		"zephyr" : 
+		{ 
+		    "fetch" : { "scm":"git", "url": "https://gerrit.zephyrproject.org/r/zephyr", "tag": "v1.1.0" },
+		    "config" : { "cmd":"bin/applyPatch.pl rocket-1.1 patches zephyr", "no_cd":"1" }
+		}		
+	    }
+	}
